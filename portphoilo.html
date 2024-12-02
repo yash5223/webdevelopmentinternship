@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Portfolio</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #6a5acd, #836fff);
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background: #444;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 14px 20px;
+            transition: background 0.3s;
+        }
+
+        .navbar a:hover {
+            background: #6a5acd;
+        }
+
+        .logo {
+            max-width: 250px;
+            margin: 20px auto;
+        }
+
+        .logo img {
+            width: 100%;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .intro {
+            margin: 10px 0;
+            font-size: 1.2em;
+            font-style: italic;
+        }
+
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        .flex-item {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 10px;
+            flex: 1;
+            min-width: 500px;
+            transition: transform 0.3s;
+        }
+
+        .flex-item:hover {
+            transform: translateY(-2px);
+        }
+
+        h2 {
+            color: #6a5acd;
+            border-bottom: 2px solid #6a5acd;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .project {
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .project:hover {
+            transform: scale(1.02);
+        }
+
+        .project img {
+            max-width: 100%;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .project img:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #444;
+            color: #fff;
+            margin-top: 20px;
+        }
+
+        a {
+            color: #6a5acd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #836fff;
+            text-decoration: underline;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        fieldset {
+            border: 2px solid #6a5acd;
+            border-radius: 8px;
+            margin: 20px 0;
+            padding: 20px;
+            animation: slideIn 0.5s ease forwards;
+            opacity: 0; 
+            display: flex;
+            flex-direction: column; 
+            max-width: 400px; 
+            margin: 20px auto;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .flex-container {
+           max-width: 1200px;
+            }
+
+            .flex-item {
+                text-align: center;
+            }
+
+            .project {
+                text-align: left;
+            }
+        fieldset input, fieldset textarea {
+            width: 90%;
+            max-width: 200px;
+            padding: 10px;
+            margin: 10px 0; 
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        @media (max-width: 600px) {
+            .flex-container {
+                flex-direction: column; 
+            }
+            .logo h1 {
+                font-size: 2em;
+            }
+            .navbar {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <header>
+        <div class="logo">
+            <img src="https://startup88.com/wp-content/uploads/2019/12/logobotse.png" alt="Your Logo">
+            <h1>Yash Gaware</h1>
+        </div>
+        <div class="intro">
+            <p>“Innovating Ideas into Reality”</p>
+        </div>
+    </header>
+
+    <div class="flex-container">
+        <section id="about" class="flex-item about">
+            <img src="your-image.jpg" alt="Your Image" style="max-width: 100%; border-radius: 8px;">
+            <h2>About Me</h2>
+            <p>Hi there! I’m Yash Gaware, a dedicated web developer and designer with a knack for turning complex problems into elegant solutions. With over five years of experience in the tech industry, I specialize in crafting responsive, user-friendly websites that not only meet client needs but also provide delightful user experiences. My journey in tech has equipped me with a diverse skill set, and I’m always eager to learn and adapt.</p>
+        </section>
+
+        <section id="skills" class="flex-item skills">
+            <h2>My Expertise Includes:</h2>
+            <ul>
+                <li>Web Development (HTML, CSS, JavaScript)</li>
+                <li>Front-End Frameworks (React, Vue.js)</li>
+                <li>UI/UX Design</li>
+                <li>Responsive Design Principles</li>
+                <li>Project Management</li>
+                <li>Graphic Design</li>
+            </ul>
+        </section>
+    </div>
+
+    <section id="projects" class="flex-item skills">
+        <h2>Featured Projects:</h2>
+
+        <div class="project">
+            <h3>E-commerce Platform</h3>
+            <p>An innovative e-commerce platform that enhances user experience.</p>
+            <img src="https://th.bing.com/th/id/OIP.uHy0PZ95A8g_cRRxGnygPwHaD4?rs=1&pid=ImgDetMain" alt="Project Image 1">
+        </div>
+
+        <div class="project">
+            <h3>Portfolio Website</h3>
+            <p>A portfolio website for creatives, showcasing their work beautifully.</p>
+            <img src="https://th.bing.com/th/id/OIP.yJvqYB_feqnG3tv7taxOtgHaEw?rs=1&pid=ImgDetMain" alt="Project Image 2">
+        </div>
+
+        <div class="project">
+            <h3>Community forum</h3>
+            <p>A community forum that fosters discussion and engagement among users.</p>
+            <img src="https://th.bing.com/th/id/OIP.8iw-oPgm8QVv_g62ipxmXwHaEK?rs=1&pid=ImgDetMain" alt="Project Image 3">
+        </div>
+    </section>
+
+    <section id="resume" class="resume flex-item">
+        <h2>Resume</h2>
+        <a href="https://drive.google.com/file/d/1bT_wMqhS_wTYw31CVVvb3HcZLQLKlrX_/view?usp=drive_link" target="_blank">Download My Resume</a>
+    </section>
+
+    <section id="contact" class="contact flex-item">
+        <h2>Let’s Connect:</h2>
+        <fieldset>
+            <legend>Contact Information</legend>
+            <p>Email: <a href="yashgaware292@gmail.com">yashgaware292@gmail.com</a></p>
+            <p>Phone: 9175523939</p>
+        </fieldset>
+        <fieldset>
+            <legend>Send Me a Message</legend>
+            <form action="#" method="post">
+                <label for="name">Name:</label>
+                <br>
+                <input type="text" id="name" name="name" required>
+                <br>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <br>
+                <input type="submit" value="Send">
+            </form>
+        </fieldset>
+    </section>
+
+    <section id="additional-info">
+        <fieldset>
+            <legend>Additional Info</legend>
+            <p>This section is for any extra information you'd like to provide.</p>
+        </fieldset>
+    </section>
+
+    <footer>
+        <p>© [2024] Yash Gaware. All rights reserved.</p>
+        <p>Follow my journey on <a href="https://linkedin.com/in/yash-gaware-11991427a">LinkedIn</a> and <a href="https://github.com/yash5223/dsaassignments.com.git">GitHub</a>.</p>
+    </footer>
+</body>
+</html>
