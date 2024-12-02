@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create a Quiz</title>
+  <style>
+    /* General reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f7fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header {
+      background-color: #2d3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 4px solid #007bff;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 15px;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    nav ul li a:hover {
+      color: #007bff;
+      transition: color 0.3s;
+    }
+
+    #quiz-form {
+      background-color: white;
+      padding: 40px;
+      margin-top: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #quiz-form h2 {
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    form {
+      display: grid;
+      gap: 20px;
+    }
+
+    label {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    input[type="text"], input[type="number"] {
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 100%;
+      background-color: #f9f9f9;
+    }
+
+    input[type="text"]:focus, input[type="number"]:focus {
+      outline: none;
+      border-color: #007bff;
+      background-color: #fff;
+    }
+
+    button {
+      padding: 12px 25px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    footer {
+      background-color: #2d3e50;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 50px;
+    }
+
+    footer p {
+      font-size: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      #quiz-form {
+        padding: 30px;
+      }
+
+      button {
+        width: 100%;
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Create Your Quiz</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="quiz-listing.html">Browse Quizzes</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="quiz-form">
+    <div class="container">
+      <h2>Create a New Quiz</h2>
+      <form id="quizForm">
+        <label for="question">Question</label>
+        <input type="text" id="question" name="question" required>
+
+        <label for="option1">Option 1</label>
+        <input type="text" id="option1" name="option1" required>
+
+        <label for="option2">Option 2</label>
+        <input type="text" id="option2" name="option2" required>
+
+        <label for="option3">Option 3</label>
+        <input type="text" id="option3" name="option3" required>
+
+        <label for="option4">Option 4</label>
+        <input type="text" id="option4" name="option4" required>
+
+        <label for="correctOption">Correct Option (1-4)</label>
+        <input type="number" id="correctOption" name="correctOption" min="1" max="4" required>
+
+        <button type="submit" class="btn">Create Quiz</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Online Quiz Maker. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

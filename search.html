@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Search</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    section#search-section {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    #search-bar {
+      padding: 10px;
+      width: 60%;
+      margin-top: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    #job-results {
+      margin-top: 20px;
+    }
+
+    .job {
+      background-color: #fff;
+      padding: 20px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .job h3 {
+      color: #333;
+    }
+
+    .job p {
+      color: #666;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Job Search</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="job-listings.html">Job Listings</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="search-section">
+    <h2>Search for Jobs</h2>
+    <input type="text" id="search-bar" placeholder="Enter job title or location">
+    <button onclick="searchJobs()">Search</button>
+    <div id="job-results"></div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Job Board. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const jobs = [
+      { title: "Software Engineer", location: "San Francisco, CA" },
+      { title: "Marketing Specialist", location: "New York, NY" },
+      { title: "UX Designer", location: "Chicago, IL" },
+      { title: "Web Developer", location: "Remote" },
+      { title: "Data Scientist", location: "Austin, TX" }
+    ];
+
+    function searchJobs() {
+      const searchQuery = document.getElementById("search-bar").value.toLowerCase();
+      const results = jobs.filter(job => 
+        job.title.toLowerCase().includes(searchQuery) || 
+        job.location.toLowerCase().includes(searchQuery)
+      );
+      displayResults(results);
+    }
+
+    function displayResults(results) {
+      const resultsContainer = document.getElementById("job-results");
+      resultsContainer.innerHTML = "";
+
+      if (results.length > 0) {
+        results.forEach(job => {
+          const jobDiv = document.createElement("div");
+          jobDiv.classList.add("job");
+          jobDiv.innerHTML = `
+            <h3>${job.title}</h3>
+            <p>Location: ${job.location}</p>
+            <a href="job-detail.html" class="btn-primary">View Details</a>
+          `;
+          resultsContainer.appendChild(jobDiv);
+        });
+      } else {
+        resultsContainer.innerHTML = "<p>No jobs found matching your search.</p>";
+      }
+    }
+  </script>
+
+</body>
+</html>

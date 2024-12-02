@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Application</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Job Application</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="job-listings.html">Job Listings</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="apply">
+    <h2>Apply for Software Engineer at TechCorp</h2>
+    <form action="/submit-application" method="POST" enctype="multipart/form-data">
+      <label for="resume">Upload Resume:</label>
+      <input type="file" id="resume" name="resume" required>
+      <button type="submit">Submit Application</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Job Board. All rights reserved.</p>
+  </footer>
+</body>
+</html>

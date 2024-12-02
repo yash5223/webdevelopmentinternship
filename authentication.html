@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Quiz Maker</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f7f8fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #1c3d5a;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 15px;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #ffd700;
+    }
+
+    section {
+      padding: 50px 0;
+      background-color: #fff;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .btn {
+      background-color: #1c3d5a;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #005f81;
+    }
+
+    .form-container {
+      width: 100%;
+      max-width: 450px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .form-container:hover {
+      transform: translateY(-5px);
+    }
+
+    .form-container h2 {
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 1.8rem;
+      color: #1c3d5a;
+    }
+
+    .form-container label {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      display: block;
+      color: #555;
+    }
+
+    .form-container input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .form-container input:focus {
+      border-color: #1c3d5a;
+    }
+
+    footer {
+      background-color: #1c3d5a;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    footer p {
+      font-size: 1rem;
+    }
+
+    @media screen and (max-width: 768px) {
+      nav ul li {
+        display: block;
+        margin: 10px 0;
+        text-align: center;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .form-container {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Online Quiz Maker</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="quiz-listing.html">Browse Quizzes</a></li>
+          <li><a href="quiz-creation.html">Create a Quiz</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="register.html">Register</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <div id="login-form" class="form-container">
+        <h2>Login</h2>
+        <form id="login-form">
+          <label for="login-email">Email</label>
+          <input type="email" id="login-email" placeholder="Enter your email" required>
+          
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" placeholder="Enter your password" required>
+
+          <button type="submit" class="btn">Login</button>
+        </form>
+        <p id="login-error" style="color: red; text-align: center;"></p>
+      </div>
+
+      <div id="register-form" class="form-container" style="display:none;">
+        <h2>Register</h2>
+        <form id="register-form">
+          <label for="register-email">Email</label>
+          <input type="email" id="register-email" placeholder="Enter your email" required>
+          
+          <label for="register-password">Password</label>
+          <input type="password" id="register-password" placeholder="Enter your password" required>
+
+          <button type="submit" class="btn">Register</button>
+        </form>
+        <p id="register-error" style="color: red; text-align: center;"></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Online Quiz Maker. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const loginForm = document.getElementById('login-form');
+    const registerForm = document.getElementById('register-form');
+    const loginError = document.getElementById('login-error');
+    const registerError = document.getElementById('register-error');
+    const registerLink = document.querySelector('a[href="register.html"]');
+    const loginLink = document.querySelector('a[href="login.html"]');
+
+    if (registerForm) {
+      registerForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const email = document.getElementById('register-email').value;
+        const password = document.getElementById('register-password').value;
+
+        const existingUser = localStorage.getItem(email);
+        if (existingUser) {
+          registerError.textContent = 'User already exists with this email.';
+        } else {
+          const user = { email, password };
+          localStorage.setItem(email, JSON.stringify(user));
+          alert('Registration successful! You can now log in.');
+          window.location.href = 'login.html';
+        }
+      });
+    }
+
+    if (loginForm) {
+      loginForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const email = document.getElementById('login-email').value;
+        const password = document.getElementById('login-password').value;
+
+        const user = JSON.parse(localStorage.getItem(email));
+        if (user && user.password === password) {
+          loginError.textContent = '';
+          alert('Login successful!');
+          window.location.href = 'quiz-listing.html';
+        } else {
+          loginError.textContent = 'Invalid credentials, please try again.';
+        }
+      });
+    }
+
+    if (registerLink) {
+      registerLink.addEventListener('click', function() {
+        document.getElementById('login-form').style.display = 'none';
+        document.getElementById('register-form').style.display = 'block';
+      });
+    }
+
+    if (loginLink) {
+      loginLink.addEventListener('click', function() {
+        document.getElementById('register-form').style.display = 'none';
+        document.getElementById('login-form').style.display = 'block';
+      });
+    }
+  </script>
+
+</body>
+</html>
